@@ -43,6 +43,58 @@
 
 
 
+
+
+/*------------- Case Studies ---------------------------- */
+
+/* Reset default heading and paragraph spacing, then add your own */
+.case-study-detail h1, h2, h3, h4, p {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.case-study-detail h1 {
+  font-size: var(--font--size-huge);
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.case-study-detail h2 {
+  font-size: var(--font--size-large);
+  margin-bottom: 24px;  
+  margin-top: 64px;
+}
+
+.case-study-detail h3 {
+  font-size: var(--font--size-medium);  /* You might need to define this in variables.css */
+  margin-bottom: 18px;
+  margin-top: 18px;
+}
+
+.case-study-detail h4 {
+  font-size: var(--font--size-regular); /* Or a smaller size if you have it */
+  font-weight: bold;
+  margin-bottom: 12px;
+  margin-top: 12px;
+}
+
+.case-study-detail p {
+  font-size: var(--font--size-regular);
+  line-height: var(--font--size-regular-line-height);
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+
+
+
+
+
+
+
+
+
 /* Section cover
 ----------------------------------------------------------------------------- */
 
@@ -689,12 +741,13 @@ body.theme-slider--is--visible .app-aside .option.theme .dot:nth-child(1)  { tra
 
 .section.work .work-item {
   grid-column: 1 / -1; /* Make work items span full width */
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 /* Add any other work-specific styles here */
 .case-study {
   text-align: left;
+  margin-bottom: 0;
 }
 
 .case-study-details {
