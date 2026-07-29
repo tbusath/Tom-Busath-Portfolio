@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Private &mdash; Tom Busath</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:#f4f5f7; color:#1a1a1a; padding:24px; }
+  .card { width:100%; max-width:400px; text-align:center; }
+  .card h1 { font-size:20px; margin:0 0 8px; font-weight:700; }
+  .card p { font-size:14px; color:#555; margin:0 0 20px; line-height:1.5; }
+  form { display:flex; gap:8px; }
+  input { flex:1; padding:12px 14px; font-size:15px; border:1px solid #ccc; border-radius:8px; }
+  button { padding:12px 18px; font-size:15px; font-weight:600; border:0; border-radius:8px; background:#1a1a1a; color:#fff; cursor:pointer; }
+  button:hover { background:#333; }
+  .err { color:#c0392b; font-size:13px; margin-top:12px; min-height:18px; }
+  .back { display:inline-block; margin-top:22px; font-size:13px; color:#999; text-decoration:none; }
+  .back:hover { color:#555; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>This case study is private</h1>
+    <p>It contains confidential work. Enter the password to view &mdash; ask Tom if you need it.</p>
+    <form id="f">
+      <input id="pw" type="password" placeholder="Password" autofocus autocomplete="current-password">
+      <button type="submit">Unlock</button>
+    </form>
+    <div class="err" id="err"></div>
+    <a class="back" href="index.html">&larr; Back to home</a>
+  </div>
+<script>
+(function(){
+  var PAYLOAD="__PAYLOAD_B64__", ITER=__ITER__;
+  async function decrypt(pw){
+    var raw=Uint8Array.from(atob(PAYLOAD),function(c){return c.charCodeAt(0);});
+    var salt=raw.slice(0,16), iv=raw.slice(16,28), ct=raw.slice(28);
+    var km=await crypto.subtle.importKey("raw",new TextEncoder().encode(pw),"PBKDF2",false,["deriveKey"]);
+    var key=await crypto.subtle.deriveKey({name:"PBKDF2",salt:salt,iterations:ITER,hash:"SHA-256"},km,{name:"AES-GCM",length:256},false,["decrypt"]);
+    var pt=await crypto.subtle.decrypt({name:"AES-GCM",iv:iv},key,ct);
+    return new TextDecoder().decode(pt);
+  }
+  async function tryUnlock(pw, remember){
+    try{
+      var html=await decrypt(pw);
+      if(remember){ try{ sessionStorage.setItem("tb_pw", pw); }catch(e){} }
+      document.open(); document.write(html); document.close();
+    }catch(e){
+      document.getElementById("err").textContent="Incorrect password.";
+      try{ sessionStorage.removeItem("tb_pw"); }catch(_){}
+    }
+  }
+  document.getElementById("f").addEventListener("submit",function(ev){
+    ev.preventDefault(); tryUnlock(document.getElementById("pw").value, true);
+  });
+  var saved=null; try{ saved=sessionStorage.getItem("tb_pw"); }catch(e){}
+  if(saved){ tryUnlock(saved, false); }
+})();
+</script>
+</body>
+</html>

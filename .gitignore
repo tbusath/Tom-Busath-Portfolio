@@ -1,0 +1,14 @@
+# Plaintext case-study sources — never committed to the public repo.
+_src/
+
+# Raw, unredacted screen captures. These contain internal URLs, colleague names,
+# customer names and financials. GitHub Pages serves every committed file at a
+# public URL with no password, so these must never be tracked. Images that belong
+# in a gated page are inlined as base64 by encrypt.py instead.
+images/CapitalOne/
+
+.DS_Store
+
+# Work-sample collage (shows internal branding) + resume PDFs pending review.
+_private/
+_preview.html
