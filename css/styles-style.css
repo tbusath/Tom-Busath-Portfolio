@@ -1330,3 +1330,20 @@ body.page-not-found .section.intro h1 {
   .work-gate-note { margin-bottom: 24px; }
   .work-gate-button { padding: 13px 20px; font-size: 0.95em; }
 }
+
+/* ---- Contact profile photo ----
+   Source is 706x706. Capping display width keeps it from being upscaled
+   (which read as pixelation) and stays ~2x for retina. Constrain the figure,
+   not the img, so the absolutely-positioned overlays track the same box. */
+.section.contact .image figure {
+  max-width: 360px;
+  width: 100%;
+  margin: 0;
+}
+.section.contact .image img {
+  display: block;
+  border-radius: 8px;
+}
+@media (max-width: 600px) {
+  .section.contact .image figure { max-width: 260px; }
+}
