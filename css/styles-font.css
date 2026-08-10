@@ -38,3 +38,57 @@ html {
 
 /* Compensate for embedded left side space on H */
 /* margin-left: -0.08em; */
+
+
+/* ---- Display face: Baron Neue Bold ----
+   Frank Hemmekam / Fontfabric, personal license. The EULA allows @font-face on
+   a personal site provided Fontfabric is credited with a link — see the
+   colophon in index.html. Do not remove that credit.
+
+   Subsetted by _tools/build-baron-subset.py (7 KB). Rebuild with that script,
+   not with a generic converter: it also rewrites the `salt` feature, which the
+   .wordmark rule below depends on. */
+
+@font-face {
+  src: url("../fonts/BaronNeue-Bold.woff2") format("woff2");
+  font-family: "Baron Neue";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* The crossbar-less triangular A from Tom's 2017 resume. It is not a separate
+   font or weight — it is A.alt2, one of six stylistic alternates for A that
+   Baron Neue exposes through the OpenType `salt` feature. The subset keeps
+   exactly one alternate for exactly one letter, so "salt" 1 means A -> A.alt2
+   and touches nothing else. Applied to the wordmark only: in running headings
+   it would hit the first A of a sentence and leave the rest normal, which
+   reads as a bug rather than a signature. To extend it to all display type,
+   move this declaration onto the selector list below. */
+.wordmark {
+  /* The `*` rule above sets font-family on every element, which beats
+     inheriting the display face from the parent h1. A bare span would fall
+     back to the body face, so state the family here rather than inherit it. */
+  font-family: var(--font--family-display);
+  font-weight: var(--font--weight-display);
+  font-feature-settings: "salt" 1;
+  /* .section h1 sets -0.02em and loads after this file, so the span needs its
+     own value. 0.05em matches the tracking on the 2017 resume; Baron's round
+     wide caps close up badly on negative tracking. */
+  letter-spacing: 0.05em;
+}
+
+/* Scoped to display-size type only. Baron Neue is a display face: at h3/h4
+   sizes it reads heavy and hurts scanning, so body-level headings stay on
+   the text face. */
+.ai-hero-title,
+.section.cover h1,
+.section h1,
+.section h2,
+.case-study-detail h1,
+.case-study-detail h2,
+.work-gate-title {
+  font-family: var(--font--family-display);
+  font-weight: var(--font--weight-display);
+  letter-spacing: var(--font--letter-spacing-display);
+}

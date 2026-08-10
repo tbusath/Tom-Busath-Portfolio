@@ -5,6 +5,13 @@
 
 :root {
   --font--family: "Billy Sans", system-ui, sans-serif;
+  /* Display face for titles and top-level headlines. Baron Neue is caps-only:
+     mixed-case markup still renders as capitals, and the upper and lower slots
+     hold slightly different cap designs (O is 577 units wide, o is 738). The
+     wordmark relies on that, so never add text-transform to display type. */
+  --font--family-display: "Baron Neue", "Billy Sans", system-ui, sans-serif;
+  --font--weight-display: 700;
+  --font--letter-spacing-display: 0.01em;
   --font--style: normal;
   --font--weight: 500;
   --font--margin-left: -0.07em;

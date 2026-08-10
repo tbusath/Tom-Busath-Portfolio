@@ -17,6 +17,9 @@
   .section > .content {
     grid-column: 3 / -1;
   }
+  .app-footer > .content {
+    grid-column: 3 / -1;
+  }
   .section.intro > .content {
     padding: calc(var(--grid--app-xheight) - 11px) 0 80px 0;
   }
@@ -150,6 +153,11 @@
   .section > .content {
     grid-column: 1 / -1;
   }
+  .app-footer > .content {
+    grid-column: 1 / -1;
+  }
+  .app-footer { margin-top: 64px; }
+  .app-footer > .content { padding: 28px 0 48px; }
   .section.intro > .content {
     padding: calc(var(--grid--app-xheight) - 11px) 0 40px 0;
   }

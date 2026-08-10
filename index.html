@@ -37,7 +37,6 @@
   <script src="js/1270-scripts-jquery-3.7.1.min.js"></script>
   <script src="js/7556-scripts-jquery-easing-1.4.1.js"></script>
   <script src="js/28-scripts-script.js"></script>
-  <script src="js/ask-tom.js" defer></script>
 
 </head>
 
@@ -95,18 +94,11 @@
         <p class="ai-hero-sub">I'm an assistant trained on Tom Busath's work &mdash; a product designer who builds AI products &mdash; and on feedback from the people he's worked with. Ask about his impact, his AI work, or what it's like to collaborate with him.</p>
 
         <div class="ai-chat">
-          <div class="ai-thread" id="aiThread"></div>
-          <form class="ai-inputbar" id="aiForm">
-            <input id="aiInput" type="text" placeholder="Ask about Tom&rsquo;s work&hellip;" autocomplete="off" aria-label="Ask about Tom">
-            <button type="submit" aria-label="Send">&rarr;</button>
-          </form>
-          <div class="ai-suggest" id="aiSuggest">
-            <button class="ai-chip" data-q="What is Tom's biggest impact?">What&rsquo;s his biggest impact?</button>
-            <button class="ai-chip" data-q="Tell me about Tom's experience with AI">Tell me about his AI work</button>
-            <button class="ai-chip" data-q="What do peers say about working with Tom?">What do peers say?</button>
-            <button class="ai-chip" data-q="Why is Tom exploring new roles?">Why is he exploring new roles?</button>
-            <button class="ai-chip" data-q="How does Tom approach design?">How does he approach design?</button>
-          </div>
+          <script>
+            window.chtlConfig = { chatbotId: "1827323933", display: "page_inline" };
+          </script>
+          <div id="chtl-inline-bot"></div>
+          <script async data-id="1827323933" data-display="page_inline" id="chtl-script" type="text/javascript" src="https://chatling.ai/js/embed.js"></script>
         </div>
 
         <p class="ai-disclaimer">Answers come from Tom's real projects and peer feedback. <a href="#work">Or browse the case studies &darr;</a></p>
@@ -115,7 +107,7 @@
 
     <section class="section cover">
       <div class="content">
-        <h1>Tom Busath<br>&mdash;Designer</h1>
+        <h1><span class="wordmark">Tom Busath</span><br>&mdash;Designer</h1>
       </div>
     </section>
 
@@ -134,12 +126,12 @@
         </div>
 
         <div class="texts">
-          <h1 class="text anyone is--visible">I design more than visuals. <br>I build digital products<br> that solve real problems,<br> creating delightful <br>experiences across <br>multiple facets.</h1>
-          <h1 class="text recruiters">I&rsquo;m a product designer with 14 years of experience across brand and product, at companies large and small.</h1>
-          <h1 class="text design-directors">I excel at design craft, mentorship, and cross-functional collaboration, driving results in complex environments. I want to make your life easier.</h1>
-          <h1 class="text product-designers">I&rsquo;m a team player with a high bar. I'll help you level up your understanding, influence and Figma game. We'll create experiences that are portfolio-worthy.</h1>
-          <h1 class="text product-managers">I collaborate closely with PdMs, offering expertise from strategic vision to final delivery, ensuring we achieve the highest possible impact together.</h1>
-          <h1 class="text engineers"> (I&rsquo;m &ne; engineer) but I know a bit of .html and .css and I love collaboration. Let's jam together.</h1>
+          <h1 class="text anyone is--visible">I design more than visuals.<br>I build products that<br>solve real problems.</h1>
+          <h1 class="text recruiters">14 years in product design. Two patents, and an AI product I took from zero to national launch.</h1>
+          <h1 class="text design-directors">I set the bar on craft, I mentor well, and I make your life easier.</h1>
+          <h1 class="text product-designers">High bar, no ego. Let&rsquo;s make work that&rsquo;s actually portfolio-worthy.</h1>
+          <h1 class="text product-managers">Give me a vague roadmap. I&rsquo;ll hand you a working prototype in days.</h1>
+          <h1 class="text engineers">I don&rsquo;t write production code, and you don&rsquo;t want me to. But I&rsquo;ll hand you a prototype worth building.</h1>
          </div>
 
       </div>
@@ -421,7 +413,7 @@
           <p>
             <span class="title">Circle of Excellence Award<br></span>
             <span class="description">Capital One, 2019<br></span>
-            <span class="description">My cross-functional team received Capital One's Circle of Excellence award for SmartQueues, an AI solution I designed that optimizes application sorting and call efficiency. This initiative now generates $24-32MM in annual profit.</span>
+            <span class="description">My cross-functional team received Capital One's Circle of Excellence award for SmartQueues, an AI solution I designed that optimizes application sorting and call efficiency. This initiative drives $23MM in additional annual NPV.</span>
           </p>
 
           <p>
@@ -498,6 +490,20 @@
           </figure>
         </div>
 
+      </div>
+    </section>
+
+    <!-- Colophon. The Fontfabric link is a condition of Baron Neue's personal
+         license, which is what permits the @font-face embed. Keep it. -->
+    <section class="section colophon-strip">
+      <div class="content">
+        <p>
+          Display type set in <a href="https://www.fontfabric.com/fonts/baron/" target="_blank" rel="noopener">Baron Neue</a>
+          by Frank Hemmekam for <a href="https://www.fontfabric.com/" target="_blank" rel="noopener">Fontfabric</a>.
+          Text set in <a href="https://displaay.net/typeface/roobert-collection/roobert/" target="_blank" rel="noopener">Roobert</a>
+          by <a href="https://displaay.net/" target="_blank" rel="noopener">Displaay</a>.
+          <span class="copyright">&copy; <span class="year">2026</span> Tom Busath</span>
+        </p>
       </div>
     </section>
 
