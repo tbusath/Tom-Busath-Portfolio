@@ -145,7 +145,24 @@
     #0f0f13;
   color: #f4f4f6;
 }
+/* Single column by default (mobile first). At >=980px the copy moves to the
+   left of the chat so the whole hero fits one screen; stacked, the bot fell
+   below the fold on a laptop. */
 .ai-hero-inner { width: 100%; max-width: 720px; text-align: center; }
+@media (min-width: 980px) {
+  .ai-hero-inner {
+    max-width: 1220px;
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1fr);
+    gap: 64px;
+    align-items: center;
+    text-align: left;
+  }
+  .ai-hero-sub { margin-left: 0; margin-right: 0; max-width: 34em; }
+  .ai-disclaimer { margin-left: 0; margin-right: 0; }
+  /* Taller here: side by side, vertical room is no longer the constraint. */
+  #chtl-inline-bot { height: clamp(460px, 68vh, 640px); }
+}
 .ai-badge {
   display: inline-flex; align-items: center; gap: 7px;
   font-size: 12px; letter-spacing: 0.11em; text-transform: uppercase;
@@ -195,7 +212,7 @@
   color: #d4d4de; font-size: 13px; padding: 8px 13px; border-radius: 999px; cursor: pointer;
 }
 .ai-chip:hover { background: rgba(255, 255, 255, 0.13); color: #fff; }
-.ai-disclaimer { font-size: 13px; color: #8a8a97; margin: 22px auto 0; }
+.ai-disclaimer { font-size: 13px; color: #8a8a97; margin: 26px auto 0; }
 .ai-disclaimer a { color: #b4b4c2; }
 .ai-dots { display: inline-flex; gap: 5px; padding: 3px 0; }
 .ai-dots span { width: 6px; height: 6px; border-radius: 50%; background: #8a8a97; display: inline-block; animation: aiblink 1.2s infinite ease-in-out both; }
