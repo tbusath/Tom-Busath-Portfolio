@@ -61,10 +61,15 @@ html {
    font or weight — it is A.alt2, one of six stylistic alternates for A that
    Baron Neue exposes through the OpenType `salt` feature. The subset keeps
    exactly one alternate for exactly one letter, so "salt" 1 means A -> A.alt2
-   and touches nothing else. Applied to the wordmark only: in running headings
-   it would hit the first A of a sentence and leave the rest normal, which
-   reads as a bug rather than a signature. To extend it to all display type,
-   move this declaration onto the selector list below. */
+   and touches nothing else.
+
+   The subset maps BOTH cases to it — {'A': ['A.alt2'], 'a': ['A.alt2']} — so
+   in mixed-case headings every A takes the alternate, not just the capital.
+   (Baron is caps-only; the lower slot holds its own cap design.) That was the
+   worry that kept this on the wordmark alone, and it doesn't apply. Widths are
+   570 / 571 / 558, so substituting it reflows nothing. Now on all display
+   type; the `*` rule sets font-feature-settings globally without `salt`, so
+   every display selector has to restate it or the feature stays off. */
 .wordmark {
   /* The `*` rule above sets font-family on every element, which beats
      inheriting the display face from the parent h1. A bare span would fall
@@ -90,5 +95,6 @@ html {
 .work-gate-title {
   font-family: var(--font--family-display);
   font-weight: var(--font--weight-display);
+  font-feature-settings: "salt" 1;
   letter-spacing: var(--font--letter-spacing-display);
 }
