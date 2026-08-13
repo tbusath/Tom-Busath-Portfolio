@@ -104,6 +104,14 @@
   border-radius: 10px;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
 }
+/* Artwork that carries its own edge treatment: a wordmark on white, or an
+   export that already has a drop shadow baked in. The frame styling above
+   would either double the shadow or turn flat art into a floating card. */
+.case-study-detail .image-container.is--plain img {
+  border-radius: 0;
+  box-shadow: none;
+}
+
 .case-study-detail .image-container .image-caption {
   font-size: 13px;
   opacity: 0.6;
@@ -1429,4 +1437,40 @@ body.page-not-found .section.intro h1 {
 .section.colophon-strip .copyright {
   display: block;
   margin-top: 6px;
+}
+
+/* ---- Case study reading layout ----
+   The content column spans 8 of 12 grid columns, roughly 1000px on a large
+   display, which runs past 130 characters a line. Text gets a measure;
+   figures keep the full column so mock-ups and GIFs stay large. */
+.case-study-detail p,
+.case-study-detail ul,
+.case-study-detail ol,
+.case-study-detail h3,
+.case-study-detail h4 {
+  max-width: 34em;
+}
+.case-study-detail h2 { max-width: 22em; }
+
+/* Figure beside its caption. For photographs and anything whose native
+   resolution is too small to survive being stretched across the column. */
+.case-study-detail .image-container.is--aside {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 34px;
+  align-items: center;
+  max-width: 920px;
+}
+.case-study-detail .image-container.is--aside img { max-width: 100%; }
+.case-study-detail .image-container.is--aside .image-caption {
+  margin-top: 0;
+  max-width: none;
+  font-size: 14px;
+  line-height: 1.5;
+}
+@media (max-width: 820px) {
+  .case-study-detail .image-container.is--aside {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
 }
