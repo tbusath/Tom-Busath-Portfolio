@@ -68,21 +68,22 @@
 }
 
 .case-study-detail h3 {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 700;
-  line-height: 1.3;
-  margin-bottom: 10px;
-  margin-top: 36px;
+  line-height: 1.25;
+  margin-bottom: 12px;
+  margin-top: 44px;
 }
 
+/* h4 carries real narrative subsections ("Smart Linking, which came from
+   watching one phone call"), not eyebrow labels. The old 13px uppercase at
+   65% opacity was a label style and unreadable at sentence length. */
 .case-study-detail h4 {
-  font-size: 13px;
+  font-size: 18px;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
-  opacity: 0.65;
-  margin-bottom: 6px;
-  margin-top: 26px;
+  line-height: 1.35;
+  margin-bottom: 8px;
+  margin-top: 34px;
 }
 
 .case-study-detail p {
@@ -1448,9 +1449,9 @@ body.page-not-found .section.intro h1 {
 .case-study-detail ol,
 .case-study-detail h3,
 .case-study-detail h4 {
-  max-width: 34em;
+  max-width: 34rem;
 }
-.case-study-detail h2 { max-width: 22em; }
+.case-study-detail h2 { max-width: 40rem; }
 
 /* Figure beside its caption. For photographs and anything whose native
    resolution is too small to survive being stretched across the column. */
