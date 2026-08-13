@@ -48,26 +48,26 @@
 /*------------- Case Studies ---------------------------- */
 
 /* Reset default heading and paragraph spacing, then add your own */
-.case-study-detail h1, h2, h3, h4, p {
+.section.section.case-study-detail h1, h2, h3, h4, p {
   margin-top: 0;
   margin-bottom: 0;
   padding-top: 0;
   padding-bottom: 0;
 }
 
-.case-study-detail h1 {
+.section.case-study-detail h1 {
   font-size: var(--font--size-huge);
   margin-bottom: 30px;
   margin-top: 30px;
 }
 
-.case-study-detail h2 {
+.section.case-study-detail h2 {
   font-size: var(--font--size-large);
   margin-bottom: 24px;  
   margin-top: 64px;
 }
 
-.case-study-detail h3 {
+.section.case-study-detail h3 {
   font-size: 25px;
   font-weight: 700;
   line-height: 1.25;
@@ -78,7 +78,7 @@
 /* h4 carries real narrative subsections ("Smart Linking, which came from
    watching one phone call"), not eyebrow labels. The old 13px uppercase at
    65% opacity was a label style and unreadable at sentence length. */
-.case-study-detail h4 {
+.section.case-study-detail h4 {
   font-size: 18px;
   font-weight: 700;
   line-height: 1.35;
@@ -86,7 +86,7 @@
   margin-top: 34px;
 }
 
-.case-study-detail p {
+.section.case-study-detail p {
   font-size: var(--font--size-regular);
   line-height: var(--font--size-regular-line-height);
   margin-bottom: 16px;
@@ -94,10 +94,10 @@
 }
 
 /* Case-study images + intentional placeholder frames */
-.case-study-detail .image-container {
+.section.case-study-detail .image-container {
   margin: 28px 0 36px;
 }
-.case-study-detail .image-container img {
+.section.section.case-study-detail .image-container img {
   display: block;
   width: 100%;
   max-width: 920px;
@@ -108,18 +108,18 @@
 /* Artwork that carries its own edge treatment: a wordmark on white, or an
    export that already has a drop shadow baked in. The frame styling above
    would either double the shadow or turn flat art into a floating card. */
-.case-study-detail .image-container.is--plain img {
+.section.section.case-study-detail .image-container.is--plain img {
   border-radius: 0;
   box-shadow: none;
 }
 
-.case-study-detail .image-container .image-caption {
+.section.section.case-study-detail .image-container .image-caption {
   font-size: 13px;
   opacity: 0.6;
   margin-top: 8px;
 }
 /* When there's no image yet, show a clean framed placeholder instead of a bare caption line */
-.case-study-detail .image-container:not(:has(img)) {
+.section.section.case-study-detail .image-container:not(:has(img)) {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -134,7 +134,7 @@
       rgba(0, 0, 0, 0.02) 0, rgba(0, 0, 0, 0.02) 12px,
       rgba(0, 0, 0, 0.04) 12px, rgba(0, 0, 0, 0.04) 24px);
 }
-.case-study-detail .image-container:not(:has(img)) p {
+.section.section.section.case-study-detail .image-container:not(:has(img)) p {
   margin: 0;
   font-size: 13px;
   letter-spacing: 0.04em;
@@ -1444,33 +1444,33 @@ body.page-not-found .section.intro h1 {
    The content column spans 8 of 12 grid columns, roughly 1000px on a large
    display, which runs past 130 characters a line. Text gets a measure;
    figures keep the full column so mock-ups and GIFs stay large. */
-.case-study-detail p,
-.case-study-detail ul,
-.case-study-detail ol,
-.case-study-detail h3,
-.case-study-detail h4 {
+.section.case-study-detail p,
+.section.case-study-detail ul,
+.section.case-study-detail ol,
+.section.case-study-detail h3,
+.section.case-study-detail h4 {
   max-width: 34rem;
 }
-.case-study-detail h2 { max-width: 40rem; }
+.section.case-study-detail h2 { max-width: 40rem; }
 
 /* Figure beside its caption. For photographs and anything whose native
    resolution is too small to survive being stretched across the column. */
-.case-study-detail .image-container.is--aside {
+.section.section.case-study-detail .image-container.is--aside {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
   gap: 34px;
   align-items: center;
   max-width: 920px;
 }
-.case-study-detail .image-container.is--aside img { max-width: 100%; }
-.case-study-detail .image-container.is--aside .image-caption {
+.section.section.section.case-study-detail .image-container.is--aside img { max-width: 100%; }
+.section.section.section.case-study-detail .image-container.is--aside .image-caption {
   margin-top: 0;
   max-width: none;
   font-size: 14px;
   line-height: 1.5;
 }
 @media (max-width: 820px) {
-  .case-study-detail .image-container.is--aside {
+  .section.section.case-study-detail .image-container.is--aside {
     grid-template-columns: 1fr;
     gap: 14px;
   }
